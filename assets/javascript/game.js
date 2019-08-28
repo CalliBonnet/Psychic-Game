@@ -25,13 +25,26 @@ document.onkeyup = function (event) {
     //The below are the if/else statements 
     if ((userPick === "a" && computerLetterPick === "a") || (userPick === "b" && computerLetterPick === "b") || (userPick === "c" && computerLetterPick === "c")) {
         win++;
-        console.log("You Win!")
+        console.log("You Win!");
+    } else {
+        lose++;
+        console.log("you lose!!");
     }
 
-    if ((userPick !== "a" && computerLetterPick === "a") || (userPick !== "b" && computerLetterPick === "b") || (userPick !== "c" && computerLetterPick === "c")) {
-        lose++; 
-        console.log("You Lose!");
+
+    //this is attempting to decrease the user count by 1 
+    let decreaseUserGuessCout = function () {
+        count = count -1;
+        console.log("Decreasing the user guess count");
     }
+
+    //this is attempting to determine what happens when the user guess count = 0 
+    let NoMoreUserGuesses = function (){
+        if (count === 0) {
+
+        }
+    }
+    
 
 
     userGuess.textContent = userPick;
