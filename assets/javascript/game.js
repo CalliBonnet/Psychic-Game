@@ -14,12 +14,18 @@ let win = 0;
 let lose = 0; 
 let count = 10; 
 
+//This is creating en event & the event is the user picking/Guesses a letter 
+document.onkeyup = function (event) {
+    let userPick = event.key;
+    console.log(userPick);
+
+    let computerLetterPick = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+    console.log(computerLetterPick);
 
 
-
-
-
-userGuess.textContent = userPick;
-userWin.textContent = win;
-userLose.textContent = lose;
-userGuessCount.textContent = count; 
+    userGuess.textContent = userPick;
+    computerLetter.textContent = computerLetterPick; 
+    userWin.textContent = win;
+    userLose.textContent = lose;
+    userGuessCount.textContent = count; 
+}
