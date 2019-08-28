@@ -30,7 +30,7 @@ document.onkeyup = function (event) {
 
     if ((userPick !== "a" && computerLetterPick === "a") || (userPick !== "b" && computerLetterPick === "b") || (userPick !== "c" && computerLetterPick === "c")) {
         lose++; 
-        console.log(userPick);
+        console.log("You Lose!");
     }
 
 
