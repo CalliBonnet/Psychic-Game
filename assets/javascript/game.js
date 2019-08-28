@@ -22,6 +22,17 @@ document.onkeyup = function (event) {
     let computerLetterPick = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     console.log(computerLetterPick);
 
+    //The below are the if/else statements 
+    if ((userPick === "a" && computerLetterPick === "a") || (userPick === "b" && computerLetterPick === "b") || (userPick === "c" && computerLetterPick === "c")) {
+        win++;
+        console.log("You Win!")
+    }
+
+    if ((userPick !== "a" && computerLetterPick === "a") || (userPick !== "b" && computerLetterPick === "b") || (userPick !== "c" && computerLetterPick === "c")) {
+        lose++; 
+        console.log(userPick);
+    }
+
 
     userGuess.textContent = userPick;
     computerLetter.textContent = computerLetterPick; 
