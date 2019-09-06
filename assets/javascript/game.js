@@ -1,55 +1,44 @@
+//this is creating the computer gueses 
+let computerChoices = ["c", "t", "a"];
 
-//This is determining the letters that the computer can pick from 
-const computerChoices = ["a","b","c"];
+//this is getting the elements from within the html so that you cann read them in you JS 
+let userPick = document.getElementById("user-Pick");
+let computerPick = document.getElementById("computer-Pick");
+let winScore = document.getElementById("user-win");
+let loseScore = document.getElementById("user-lose");
+let guessCount = document.getElementById("user-guess-count"); 
 
-//This is gathering the ID's from the HTML file & creating new varibles here 
-var userGuess = document.getElementById("user-Guess");
-var userWin = document.getElementById("user-win");
-var userLose = document.getElementById("user-lose");
-var userGuessCount = document.getElementById("user-guess-count");
-var pastUserGueses = document.getElementById("past-user-guess");
+//this is stating what the starting values of the Win, Lose, and Guess Count is
+let win = 0;
+let lost = 0;
+let Count = 10; 
 
-//This is declaring what the win, lose, and count values start at 
-let win = 0; 
-let lose = 0; 
-let count = 10; 
-
-//This is creating en event & the event is the user picking/Guesses a letter 
+//This is the start of the function 
 document.onkeyup = function (event) {
-    let userPick = event.key;
-    console.log(userPick);
+    let userGuess = event.key;
+    console.log(userGuess);
 
-    let computerLetterPick = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-    console.log(computerLetterPick);
+    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+    console.log(computerGuess);
 
-    //The below are the if/else statements 
-    if ((userPick === "a" && computerLetterPick === "a") || (userPick === "b" && computerLetterPick === "b") || (userPick === "c" && computerLetterPick === "c")) {
-        win++;
-        console.log("You Win!");
-    } else {
-        lose++;
-        console.log("you lose!!");
-    }
+//This is if the user anf computer guess match 
+if ((userGuess === "c" && computerGuess === "c") || (userGuess === "t" && computerGuess === "t") || (userGuess === "a" && computerGuess === "a")) {
+  win++
+  Count--; 
+  console.log("you win!")
+}
 
-
-    //this is attempting to decrease the user count by 1 
-    let decreaseUserGuessCout = function () {
-        count = count -1;
-        console.log("Decreasing the user guess count");
-    }
-
-    //this is attempting to determine what happens when the user guess count = 0 
-    let NoMoreUserGuesses = function (){
-        if (count === 0) {
-
-        }
-    }
-    
+//This is if the user and computer guess do not match 
+if (userGuess !== computerGuess) {
+lost++
+Count--; 
+console.log("You lose!")
+}
 
 
-    userGuess.textContent = userPick;
-    computerLetter.textContent = computerLetterPick; 
-    userWin.textContent = win;
-    userLose.textContent = lose;
-    userGuessCount.textContent = count; 
+    userPick.textContent = userGuess;
+    computerPick.textContent = computerGuess;
+    winScore.textContent = win;
+    loseScore.textContent = lost;
+    guessCount.textContent = Count; 
 }

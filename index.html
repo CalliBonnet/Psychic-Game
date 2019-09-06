@@ -24,52 +24,7 @@
     <h2>Your Guesses so far: <span id="past-user-guess"></span></h2>
 
 
-    <!-- <script type="text/javascript" src="./assets/javascript/game.js"></script> -->
-
-    <script>
-        let computerChoices = ["c", "t", "a"];
-
-        let userPick = document.getElementById("user-Pick");
-        let computerPick = document.getElementById("computer-Pick");
-        let winScore = document.getElementById("user-win");
-        let loseScore = document.getElementById("user-lose");
-        let guessCount = document.getElementById("user-guess-count"); 
-
-        let win = 0;
-        let lost = 0;
-        let Count = 10; 
-
-        document.onkeyup = function (event) {
-            let userGuess = event.key;
-            console.log(userGuess);
-
-            var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-            console.log(computerGuess);
-
-            if ((userGuess === "c" && computerGuess === "c") || (userGuess === "t" && computerGuess === "t") || (userGuess === "a" && computerGuess === "a")) {
-          win++
-          Count--; 
-          console.log("you win!")
-      }
-
-      if (userGuess !== computerGuess) {
-        lost++
-        Count--; 
-        console.log("You lose!")
-      }
-
-
-
-            userPick.textContent = userGuess;
-            computerPick.textContent = computerGuess;
-            winScore.textContent = win;
-            loseScore.textContent = lost;
-            guessCount.textContent = Count; 
-        }
-
-
-    </script>
-
+    <script type="text/javascript" src="./assets/javascript/game.js"></script>
 
 
 </body>
