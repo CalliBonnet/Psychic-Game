@@ -48,11 +48,13 @@
 
             if ((userGuess === "c" && computerGuess === "c") || (userGuess === "t" && computerGuess === "t") || (userGuess === "a" && computerGuess === "a")) {
           win++
+          Count--; 
           console.log("you win!")
       }
 
       if (userGuess !== computerGuess) {
         lost++
+        Count--; 
         console.log("You lose!")
       }
 
