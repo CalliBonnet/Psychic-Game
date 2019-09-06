@@ -6,21 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Psychic Game</title>
-    <script type="text/javascript" src="./assets/javascript/game.js"></script>
 </head>
 
 <body>
-<h1>The Pyschic Game</h1>
-<br>
-<h2>Guess what letter I'm thinking of <span id="user-Guess"></span></h2>
-<br>
-<h2>Wins: <span id="user-win"></span></h2>
-<br>
-<h2>Losses: <span id="user-lose"></span></h2>
-<br>
-<h2>Guesses Left: <span id="user-guess-count"></span></h2>
-<br>
-<h2>Your Guesses so far: <span id="past-user-guess"></span></h2>
+    <h1>The Pyschic Game</h1>
+    <br>
+    <h2>Your Guess: <span id="user-Pick"></span></h2>
+    <br>
+    <h2>Guess what letter I'm thinking of <span id="computer-Pick"></span></h2>
+    <br>
+    <h2>Wins: <span id="user-win"></span></h2>
+    <br>
+    <h2>Losses: <span id="user-lose"></span></h2>
+    <br>
+    <h2>Guesses Left: <span id="user-guess-count"></span></h2>
+    <br>
+    <h2>Your Guesses so far: <span id="past-user-guess"></span></h2>
+
+
+    <!-- <script type="text/javascript" src="./assets/javascript/game.js"></script> -->
+
+    <script>
+        let computerChoices = ["c", "t", "a"];
+
+        let userPick = document.getElementById("user-Pick");
+        let computerPick = document.getElementById("computer-Pick");
+        let winScore = document.getElementById("user-win");
+        let loseScore = document.getElementById("user-lose");
+        let guessCount = document.getElementById("user-guess-count"); 
+
+        let win = 0;
+        let lost = 0;
+        let Count = 10; 
+
+        document.onkeyup = function (event) {
+            let userGuess = event.key;
+            console.log(userGuess);
+
+            var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+            console.log(computerGuess);
+
+            if ((userGuess === "c" && computerGuess === "c") || (userGuess === "t" && computerGuess === "t") || (userGuess === "a" && computerGuess === "a")) {
+          win++
+          console.log("you win!")
+      }
+
+      if (userGuess !== computerGuess) {
+        lost++
+        console.log("You lose!")
+      }
+
+
+
+            userPick.textContent = userGuess;
+            computerPick.textContent = computerGuess;
+            winScore.textContent = win;
+            loseScore.textContent = lost;
+            guessCount.textContent = Count; 
+        }
+
+
+    </script>
+
+
 
 </body>
 
